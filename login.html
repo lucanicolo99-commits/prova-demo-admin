@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OPENIGHT Admin — Login</title>
+<style>
+:root{--bg:#060608;--panel:#0f1014;--line:#ffffff17;--red:#ff315a;--orange:#ff8a1f;--muted:#92939a}
+*{box-sizing:border-box}body{margin:0;min-height:100svh;background:
+radial-gradient(circle at 20% 15%,#7a13321f,transparent 30%),
+radial-gradient(circle at 80% 85%,#ff7d001c,transparent 28%),#060608;color:#fff;font-family:Inter,Arial,sans-serif;display:grid;place-items:center;padding:22px}
+.shell{width:min(100%,1020px);display:grid;grid-template-columns:1fr;gap:14px}
+.visual,.card{border:1px solid var(--line);border-radius:28px;overflow:hidden;background:#0d0e12;box-shadow:0 30px 90px #0008}
+.visual{min-height:270px;padding:26px;background:
+linear-gradient(180deg,#0002,#000d),
+radial-gradient(circle at 70% 25%,#ff2c5a3b,transparent 25%),
+radial-gradient(circle at 20% 80%,#ff8a1f2c,transparent 22%),#0b0b0e;display:flex;align-items:flex-end}
+.brand{font-weight:1000;letter-spacing:-2px;font-size:54px}.visual p{color:#aaa;max-width:470px;line-height:1.5;margin:10px 0 0}
+.kicker{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#ff5978;font-weight:900}
+.card{padding:24px}.card h1{font-size:37px;letter-spacing:-2px;margin:8px 0 6px}.card>p{color:#999;line-height:1.5;margin:0 0 18px}
+label{display:block;font-size:11px;color:#aaa;margin:11px 0 5px}input{width:100%;padding:14px 15px;border:1px solid var(--line);border-radius:14px;background:#08090b;color:#fff;outline:none}input:focus{border-color:#ff4567}
+button{width:100%;border:0;border-radius:14px;padding:15px;background:linear-gradient(90deg,var(--red),var(--orange));color:white;font-weight:950;text-transform:uppercase;cursor:pointer;margin-top:15px}
+.note{margin-top:13px;padding:11px;border-radius:12px;background:#ffffff09;color:#8f9097;font-size:11px;line-height:1.45}.err{color:#ff6f87;font-size:12px;margin-top:10px}
+@media(min-width:760px){.shell{grid-template-columns:1.15fr .85fr}.visual{min-height:620px;padding:40px}.card{padding:36px;display:flex;flex-direction:column;justify-content:center}.brand{font-size:76px}}
+</style></head>
+<body>
+<div class="shell">
+  <section class="visual">
+    <div><div class="kicker">OPENIGHT CONTROL CENTER</div><div class="brand">ROMA HITS<br>DIFFERENT.</div><p>Gestisci eventi, liste, tavoli, contenuti e prenotazioni da un'unica dashboard.</p></div>
+  </section>
+  <section class="card">
+    <div class="kicker">Area riservata</div>
+    <h1>Admin Login</h1>
+    <p>Demo grafica del pannello di controllo Openight.</p>
+    <form id="loginForm">
+      <label>Email</label>
+      <input id="email" type="email" value="info.openight@gmail.com" required>
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Password demo" required>
+      <button type="submit">Accedi</button>
+      <div class="err" id="err"></div>
+    </form>
+    <div class="note">Demo locale: usa password <b>openight2026</b>. In produzione sostituiremo questo login con autenticazione reale.</div>
+  </section>
+</div>
+<script>
+loginForm.addEventListener('submit',e=>{
+  e.preventDefault();
+  if(email.value.trim().toLowerCase()==='info.openight@gmail.com' && password.value==='openight2026'){
+    localStorage.setItem('openightAdminDemo','1');
+    location.href='./admin.html';
+  } else err.textContent='Credenziali demo non corrette.';
+});
+</script>
+</body></html>
